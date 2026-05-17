@@ -1,9 +1,27 @@
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Hero({ onJoin }) {
   return (
-    <section className="min-h-screen flex items-center">
-      <div className="container text-center">
+    <section className="min-h-screen flex flex-col">
+      {/* Navigation */}
+      <nav className="w-full py-4 px-6 border-b border-gray-200">
+        <div className="container mx-auto flex justify-between items-center">
+          <h2 className="text-2xl font-bold text-gray-900">Lineup</h2>
+          <div className="flex gap-4">
+            <Link href="/login" className="px-4 py-2 text-gray-700 font-medium hover:text-gray-900">
+              Sign In
+            </Link>
+            <Link href="/signup" className="px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
+              Sign Up
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Content */}
+      <div className="flex-1 flex items-center w-full">
+        <div className="container text-center">
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 12 }}
@@ -37,6 +55,7 @@ export default function Hero({ onJoin }) {
             </svg>
           </motion.button>
         </motion.div>
+      </div>
       </div>
     </section>
   )

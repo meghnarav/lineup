@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import { Providers } from './providers'
 
 export const metadata = {
   title: 'LineUp — Fair Concert Queue',
@@ -9,7 +10,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="min-h-screen">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   )
