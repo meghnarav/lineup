@@ -18,6 +18,9 @@ npm run dev
 
 Open http://localhost:3000
 
+3. Live deployment:
+
+Open https://koncertify-lineup.vercel.app/
 Notes
 - Built with Next.js (App Router), Tailwind CSS, and Framer Motion.
 - The "Join the Queue" button assigns a random queue position and simulates countdown.
