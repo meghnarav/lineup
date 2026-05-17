@@ -15,10 +15,11 @@ npm install
 ```bash
 npm run dev
 ```
+> Open http://localhost:3000
 
-Open http://localhost:3000
+---
 
-3. Live deployment:
+## Live deployment:
 
 Open https://koncertify-lineup.vercel.app/
 
