@@ -11,7 +11,7 @@
     <rect x="590" y="158" width="470" height="18" rx="9" fill="#4B5563"/>
     <rect x="590" y="198" width="470" height="18" rx="9" fill="#9CA3AF"/>
     <g transform="translate(820 100)">
-      <rect x="-740" y="230" width="990" height="300" rx="24" fill="#111827" stroke="#8B5CF6" stroke-width="2"/>
+      <rect x="-740" y="230" width="1050" height="300" rx="24" fill="#111827" stroke="#8B5CF6" stroke-width="2"/>
       <!-- <circle cx="56" cy="70" r="22" fill="#A78BFA"/>
       <circle cx="152" cy="70" r="22" fill="#7C3AED"/>
       <rect x="24" y="120" width="200" height="16" rx="8" fill="#4F46E5"/>
