@@ -2,24 +2,24 @@
   <rect width="1200" height="700" rx="42" fill="#111827"/>
   <g opacity="0.95">
     <rect x="80" y="76" width="440" height="220" rx="28" fill="#6D28D9"/>
-    <rect x="80" y="320" width="680" height="280" rx="32" fill="#1F2937"/>
-    <rect x="140" y="128" width="160" height="26" rx="13" fill="#C7D2FE"/>
-    <rect x="140" y="170" width="260" height="20" rx="10" fill="#E9D5FF"/>
-    <rect x="140" y="208" width="220" height="20" rx="10" fill="#C7D2FE"/>
-    <rect x="140" y="252" width="180" height="20" rx="10" fill="#A78BFA"/>
-    <rect x="140" y="378" width="520" height="18" rx="9" fill="#374151"/>
-    <rect x="140" y="408" width="520" height="18" rx="9" fill="#4B5563"/>
-    <rect x="140" y="438" width="520" height="18" rx="9" fill="#9CA3AF"/>
+    <rect x="550" y="76" width="580" height="220" rx="32" fill="#1F2937"/>
+    <rect x="130" y="108" width="160" height="26" rx="13" fill="#C7D2FE"/>
+    <rect x="130" y="155" width="260" height="20" rx="10" fill="#E9D5FF"/>
+    <rect x="130" y="198" width="220" height="20" rx="10" fill="#C7D2FE"/>
+    <rect x="130" y="242" width="180" height="20" rx="10" fill="#A78BFA"/>
+    <rect x="590" y="118" width="470" height="18" rx="9" fill="#374151"/>
+    <rect x="590" y="158" width="470" height="18" rx="9" fill="#4B5563"/>
+    <rect x="590" y="198" width="470" height="18" rx="9" fill="#9CA3AF"/>
     <g transform="translate(820 100)">
-      <rect x="0" y="0" width="260" height="140" rx="24" fill="#111827" stroke="#8B5CF6" stroke-width="2"/>
-      <circle cx="56" cy="70" r="22" fill="#A78BFA"/>
+      <rect x="-740" y="230" width="990" height="300" rx="24" fill="#111827" stroke="#8B5CF6" stroke-width="2"/>
+      <!-- <circle cx="56" cy="70" r="22" fill="#A78BFA"/>
       <circle cx="152" cy="70" r="22" fill="#7C3AED"/>
       <rect x="24" y="120" width="200" height="16" rx="8" fill="#4F46E5"/>
-    </g>
-    <path d="M100 550C180 520 320 530 400 490C490 450 590 470 680 430C760 390 920 420 1000 360" stroke="#A78BFA" stroke-width="16" stroke-linecap="round"/>
-    <circle cx="100" cy="548" r="18" fill="#9333EA"/>
-    <circle cx="400" cy="488" r="14" fill="#C4B5FD"/>
+    --> </g>
+    <path d="M110 550C180 520 320 530 400 490C490 450 590 470 680 430C760 390 920 420 1000 360" stroke="#baa6f4" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="110" cy="548" r="18" fill="#9333EA"/>
+    <circle cx="400" cy="488" r="14" fill="#7b6ac1"/>
     <circle cx="680" cy="430" r="18" fill="#DDD6FE"/>
-    <circle cx="1000" cy="360" r="14" fill="#A78BFA"/>
+    <circle cx="1000" cy="360" r="14" fill="#7a6ce8"/>
   </g>
 </svg>
