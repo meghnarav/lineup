@@ -18,10 +18,14 @@ const ACTIVITY_MESSAGES = [
 
 export default function QueueSimulator({ initialPosition, active, onComplete, onLeave }) {
   const [position, setPosition] = useState(null)
-  const [globalCount, setGlobalCount] = useState(() => Math.floor(8000 + Math.random() * 14000))
+  const [globalCount, setGlobalCount] = useState(0)
   const [statusIndex, setStatusIndex] = useState(0)
   const [feed, setFeed] = useState([])
   const feedId = useRef(0)
+
+  useEffect(() => {
+    setGlobalCount(Math.floor(8000 + Math.random() * 14000))
+  }, [])
 
   useEffect(() => {
     if (active && typeof initialPosition === 'number') {
@@ -81,81 +85,84 @@ export default function QueueSimulator({ initialPosition, active, onComplete, on
   }, [])
 
   return (
-    <div className="w-full max-w-md">
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            key="card"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.4 }}
-            className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 shadow-lg"
-          >
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="text-sm">🔴</div>
-                <motion.div className="text-sm soft-muted">{''}</motion.div>
-                <motion.div
-                  key={globalCount}
-                  className="text-sm font-medium"
-                  initial={{ scale: 0.98, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                >
-                  {globalCount.toLocaleString()} users currently in queue
-                </motion.div>
-              </div>
-              <div className="text-xs soft-muted">Live</div>
+    <div className="w-full max-w-2xl">
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0f1722]/85 p-6 shadow-2xl shadow-slate-950/40 backdrop-blur-xl">
+        <div className="absolute -right-16 top-10 h-48 w-48 rounded-full bg-violet-500/10 blur-3xl" aria-hidden="true" />
+        <div className="absolute -left-16 bottom-8 h-44 w-44 rounded-full bg-fuchsia-500/10 blur-3xl" aria-hidden="true" />
+
+        <div className="relative z-10">
+          <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.24em] text-violet-300">Live queue</p>
+              <p className="mt-2 text-sm soft-muted">Experience how Lineup keeps your place visible and secure.</p>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-white/80 shadow-sm shadow-slate-950/20">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              Online now
+            </div>
+          </div>
+
+          <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/80 p-6">
+            <div className="mb-5 flex items-center justify-between gap-4 text-sm text-slate-300">
+              <span className="inline-flex items-center gap-2">🔴 Live updates</span>
+              <span className="font-semibold">{globalCount.toLocaleString()} in queue</span>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="grid gap-6 md:grid-cols-[1.3fr_0.7fr]">
               <div>
-                <div className="text-sm soft-muted">You are in queue</div>
+                <p className="text-sm soft-muted">Your current position</p>
                 <motion.div
-                  className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight"
+                  className="mt-3 text-4xl font-semibold tracking-tight text-white"
                   key={position}
                   initial={{ scale: 0.95, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
+                  transition={{ type: 'spring', stiffness: 260 }}
                 >
                   #{position != null ? String(position).padStart(4, '0') : '----'}
                 </motion.div>
-                <div className="mt-1 text-sm soft-muted">{position != null ? `${Math.max(0, position - 1)} people ahead of you` : ''}</div>
+                <p className="mt-2 text-sm text-slate-400">
+                  {position != null ? `${Math.max(0, position - 1)} people ahead of you` : 'Tap join to start your queue.'}
+                </p>
               </div>
-
-              <div className="text-right">
-                <div className="text-xs soft-muted">Status</div>
-                <motion.div className="mt-2 text-sm font-medium text-neutral-200" key={statusIndex} initial={{ x: 8, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.35 }}>
-                  {STATUS_MESSAGES[statusIndex]}
-                </motion.div>
-              </div>
-            </div>
-
-            <div className="mt-5">
-              <div className="flex gap-3">
-                <button
-                  onClick={onLeave}
-                  className="flex-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-50 py-2 rounded-md text-sm transition"
+              <div className="rounded-3xl bg-slate-950/90 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Current flow</p>
+                <motion.p
+                  className="mt-3 text-sm font-medium text-slate-100"
+                  key={statusIndex}
+                  initial={{ x: 8, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.35 }}
                 >
-                  Leave Queue
-                </button>
-                <button className="px-3 py-2 text-sm rounded-md border border-zinc-700 soft-muted">Help</button>
+                  {STATUS_MESSAGES[statusIndex]}
+                </motion.p>
               </div>
             </div>
+          </div>
 
-            <div className="mt-6">
-              <h4 className="text-sm font-semibold mb-2">Live activity</h4>
-              <div className="space-y-2 max-h-40 overflow-hidden">
-                {feed.map((item) => (
-                  <motion.div key={item.id} initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -8 }} className="text-sm soft-muted">
-                    • {item.text}
-                  </motion.div>
-                ))}
-              </div>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <button
+              onClick={onLeave}
+              className="flex-1 rounded-2xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 hover:bg-violet-500 transition"
+            >
+              Leave Queue
+            </button>
+            <button className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200 transition hover:bg-white/10">
+              Help
+            </button>
+          </div>
+
+          <div className="mt-7 rounded-3xl border border-white/10 bg-white/5 p-5">
+            <p className="text-sm font-semibold text-slate-100">Live activity</p>
+            <div className="mt-4 space-y-3 text-sm text-slate-300">
+              {feed.map((item) => (
+                <motion.div key={item.id} initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -8 }}>
+                  • {item.text}
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

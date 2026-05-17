@@ -8,7 +8,13 @@ html, body, #__next {
 }
 
 body {
-  @apply bg-zinc-950 text-zinc-50 antialiased;
+  @apply bg-slate-950 text-slate-100 antialiased;
+  background-image: radial-gradient(circle at top left, rgba(129, 140, 248, 0.08), transparent 28%), radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.1), transparent 30%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
 }
 
 .container {
@@ -19,5 +25,14 @@ body {
   background-image: linear-gradient(90deg, rgba(129, 88, 225, 0.676), rgba(240, 73, 156, 0.527));
   box-shadow: 0 8px 28px rgba(236,72,153,0.10);
 }
-.soft-muted { color: #9ca3af; }
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.soft-muted {
+  color: #9ca3af;
+}
 
