@@ -3,7 +3,7 @@
 
 ## Live deployment:
 
-Open https://koncertify-lineup.vercel.app/
+Open [https://koncertify-lineup.vercel.app/](https://koncertify-lineup.vercel.app/)
 
 ---
 
