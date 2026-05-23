@@ -1,5 +1,12 @@
 # LineUp — Landing Page (Demo)
 
+
+## Live deployment:
+
+Open https://koncertify-lineup.vercel.app/
+
+---
+
 This is a demo Next.js landing page for LineUp — a fair concert ticket queue system.
 
 Quick start
@@ -16,13 +23,6 @@ npm install
 npm run dev
 ```
 > Open http://localhost:3000
-
----
-
-## Live deployment:
-
-Open https://koncertify-lineup.vercel.app/
-
 
 Notes
 - Built with Next.js (App Router), Tailwind CSS, and Framer Motion.
